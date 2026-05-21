@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>STORIES LAGOS | Luxury Lounge &amp; Dining</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&amp;family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed": "#061a3c",
+                        "surface-container": "#eeeeee",
+                        "on-error": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-container": "#828485",
+                        "surface-dim": "#dadada",
+                        "outline": "#75777f",
+                        "surface-variant": "#e2e2e2",
+                        "primary": "#000000",
+                        "surface-bright": "#f9f9f9",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-fixed-dim": "#e3c19a",
+                        "tertiary": "#000000",
+                        "on-primary-container": "#7384ab",
+                        "outline-variant": "#c5c6cf",
+                        "primary-fixed": "#d8e2ff",
+                        "primary-container": "#061a3c",
+                        "on-secondary-fixed": "#2a1801",
+                        "surface-container-low": "#f3f3f4",
+                        "secondary-container": "#fedab1",
+                        "tertiary-fixed-dim": "#c5c7c8",
+                        "surface": "#f9f9f9",
+                        "tertiary-container": "#191c1d",
+                        "on-surface": "#1a1c1c",
+                        "tertiary-fixed": "#e1e3e4",
+                        "inverse-surface": "#2f3131",
+                        "secondary-fixed": "#ffddb7",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed-variant": "#5a4225",
+                        "on-surface-variant": "#44474e",
+                        "on-primary-fixed-variant": "#36466a",
+                        "secondary": "#745a3a",
+                        "surface-container-high": "#e8e8e8",
+                        "error-container": "#ffdad6",
+                        "primary-fixed-dim": "#b5c6f1",
+                        "background": "#f9f9f9",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed": "#191c1d",
+                        "on-background": "#1a1c1c",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-tertiary-fixed-variant": "#454748",
+                        "on-secondary-container": "#785e3e",
+                        "inverse-primary": "#b5c6f1",
+                        "error": "#ba1a1a",
+                        "surface-tint": "#4d5e83",
+                        "on-tertiary": "#ffffff",
+                        "inverse-on-surface": "#f0f1f1",
+                        "bronze": "#A38562",
+                        "navy-deep": "#061a3c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "80px",
+                        "base": "8px",
+                        "section-padding-desktop": "120px",
+                        "section-padding-mobile": "64px",
+                        "gutter": "24px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Playfair Display"],
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "headline-md": ["Playfair Display"],
+                        "headline-lg": ["Playfair Display"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "body-md": ["Plus Jakarta Sans"],
+                        "label-md": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                        "headline-lg": ["48px", {"lineHeight": "56px", "fontWeight": "600"}],
+                        "display-lg-mobile": ["40px", {"lineHeight": "48px", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .bronze-glow {
+            box-shadow: 0px 10px 30px rgba(163, 133, 98, 0.08);
+        }
+        .nav-underline::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 4px;
+            background-color: #A38562;
+            border-radius: 50%;
+        }
+
+        /* Motion System */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .shimmer-btn {
+            position: relative;
+            overflow: hidden;
+        }
+        .shimmer-btn::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent,
+                rgba(255, 255, 255, 0.1) 45%,
+                rgba(255, 255, 255, 0.2) 50%,
+                rgba(255, 255, 255, 0.1) 55%,
+                transparent
+            );
+            transform: rotate(-45deg);
+            transition: all 0.3s;
+            animation: shimmer 4s infinite linear;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translate(-100%, -100%) rotate(-45deg); }
+            100% { transform: translate(100%, 100%) rotate(-45deg); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .reveal, .shimmer-btn::after {
+                animation: none !important;
+                transition: none !important;
+                transform: none !important;
+                opacity: 1 !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background selection:bg-bronze/30 overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md transition-all duration-500">
+<div class="flex justify-between items-center max-w-container-max mx-auto px-margin-desktop py-6">
+<a class="flex items-center gap-3 hover:opacity-90 transition-opacity" href="index.html">
+    <img src="assets/logo.jpg" alt="Stories Lagos Logo" class="h-10 w-10 rounded-full object-cover border border-bronze/20">
+    <span class="font-display-lg text-headline-md text-primary tracking-tighter uppercase">STORIES LAGOS</span>
+</a>
+<div class="hidden md:flex items-center gap-10">
+<a class="font-body-md text-body-md uppercase tracking-widest text-primary font-bold relative nav-underline hover:text-bronze transition-colors duration-300" href="index.html">Home</a>
+<a class="font-body-md text-body-md uppercase tracking-widest text-on-surface-variant hover:text-bronze transition-colors duration-300" href="menu.html">Menu</a>
+<a class="font-body-md text-body-md uppercase tracking-widest text-on-surface-variant hover:text-bronze transition-colors duration-300" href="gallery.html">Gallery</a>
+<a class="font-body-md text-body-md uppercase tracking-widest text-on-surface-variant hover:text-bronze transition-colors duration-300" href="contact.html">Contact</a>
+</div>
+<a href="reservations.html" class="bg-primary text-on-primary px-8 py-3 font-body-md text-label-md uppercase tracking-widest hover:bg-bronze transition-all active:scale-95 shimmer-btn inline-block text-center">
+                Book a Table
+            </a>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative h-screen flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover scale-105 transition-transform duration-[10s] ease-linear" data-alt="A wide cinematic shot of a luxury lounge in Lagos at twilight." id="hero-bg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDpmzoMFZdtDo7-2enomDd8hU1lZmGZnvBWRKYaFzFxHAL7ZAUHWsJePmDX34UBBZnwiukfXQ_sTCo21AgI5fOvfvwaKoCb3Gl54nFPvNtEXuoMmfP4EeAjwMd2eac28koprg0lIRVZswSRw94XWxjMm2ShGMKnnUygvSND_h1auSGMQl3hHdfomgZWqnK4WWr3XkkexYFY6oOHSyeBFNq_SXQMPvlSPAyIlOmjMpwEk13T6IOb2AEC60sH2y3u2RzYJePh_CAjn0"/>
+<div class="absolute inset-0 bg-navy-deep/60 backdrop-brightness-75"></div>
+</div>
+<div class="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
+<span class="font-body-md text-label-md uppercase tracking-[0.3em] text-bronze mb-4 block animate-in fade-in slide-in-from-bottom-4 duration-700 fill-mode-both">GREAT FOOD • COCKTAIL • SHISHA</span>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg mb-8 italic animate-in fade-in slide-in-from-bottom-8 duration-1000 delay-200 fill-mode-both">Where Every Night <br/><span class="not-italic">Tells a Story</span></h1>
+<p class="font-body-lg text-body-lg text-white/80 max-w-2xl mx-auto mb-12 animate-in fade-in slide-in-from-bottom-12 duration-1000 delay-500 fill-mode-both">
+                Lekki's Premier Luxury Lounge &amp; Dining Destination. An immersive escape crafted for the sophisticated nocturnal seeker.
+            </p>
+<div class="flex flex-col md:flex-row items-center justify-center gap-6 animate-in fade-in slide-in-from-bottom-16 duration-1000 delay-700 fill-mode-both">
+<a href="reservations.html" class="bg-primary text-on-primary px-10 py-4 font-body-md text-label-md uppercase tracking-widest hover:bg-bronze transition-all bronze-glow shimmer-btn inline-block text-center">Book a Table</a>
+<a href="menu.html" class="border border-bronze text-bronze px-10 py-4 font-body-md text-label-md uppercase tracking-widest hover:bg-bronze hover:text-white transition-all inline-block text-center">View Menu</a>
+</div>
+</div>
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/50 flex flex-col items-center gap-2 animate-bounce">
+<span class="text-[10px] uppercase tracking-[0.2em]">Scroll</span>
+<span class="material-symbols-outlined" data-icon="keyboard_double_arrow_down">keyboard_double_arrow_down</span>
+</div>
+</header>
+<!-- The Stories Experience (Bento Grid) -->
+<section class="py-section-padding-desktop bg-surface overflow-hidden">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="text-center mb-20 reveal">
+<h2 class="font-display-lg text-headline-lg mb-4">The Stories Experience</h2>
+<div class="w-24 h-1 bg-bronze mx-auto"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Card 1 -->
+<div class="bg-white p-10 border border-outline-variant/30 flex flex-col items-center text-center group hover:border-bronze transition-all duration-500 reveal [transition-delay:200ms]">
+<div class="w-16 h-16 bg-surface-container-low flex items-center justify-center mb-8 rounded-full text-bronze group-hover:bg-bronze group-hover:text-white group-hover:scale-110 transition-all duration-500">
+<span class="material-symbols-outlined text-3xl" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<h3 class="font-display-lg text-headline-md mb-4 group-hover:text-bronze transition-colors duration-500">Ambience</h3>
+<p class="font-body-md text-on-surface-variant leading-relaxed">
+                        Step into a world of curated lighting and bespoke interiors designed to elevate your evening into a masterpiece of comfort.
+                    </p>
+</div>
+<!-- Card 2 -->
+<div class="bg-white p-10 border border-outline-variant/30 flex flex-col items-center text-center group hover:border-bronze transition-all duration-500 reveal [transition-delay:400ms]">
+<div class="w-16 h-16 bg-surface-container-low flex items-center justify-center mb-8 rounded-full text-bronze group-hover:bg-bronze group-hover:text-white group-hover:scale-110 transition-all duration-500">
+<span class="material-symbols-outlined text-3xl" data-icon="local_bar">local_bar</span>
+</div>
+<h3 class="font-display-lg text-headline-md mb-4 group-hover:text-bronze transition-colors duration-500">Craft Cocktails</h3>
+<p class="font-body-md text-on-surface-variant leading-relaxed">
+                        Artisanal mixology meets premium spirits. Every sip is a unique blend of heritage and modern innovation.
+                    </p>
+</div>
+<!-- Card 3 -->
+<div class="bg-white p-10 border border-outline-variant/30 flex flex-col items-center text-center group hover:border-bronze transition-all duration-500 reveal [transition-delay:600ms]">
+<div class="w-16 h-16 bg-surface-container-low flex items-center justify-center mb-8 rounded-full text-bronze group-hover:bg-bronze group-hover:text-white group-hover:scale-110 transition-all duration-500">
+<span class="material-symbols-outlined text-3xl" data-icon="star">star</span>
+</div>
+<h3 class="font-display-lg text-headline-md mb-4 group-hover:text-bronze transition-colors duration-500">The Lounge Experience</h3>
+<p class="font-body-md text-on-surface-variant leading-relaxed">
+                        Exclusive VIP enclaves and an atmosphere that pulses with the vibrant energy of Lekki's elite nightlife scene.
+                    </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Culinary Artistry (Asymmetric Layout) -->
+<section class="py-section-padding-desktop bg-white overflow-hidden">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="flex flex-col lg:flex-row items-center gap-20">
+<div class="w-full lg:w-1/2 relative reveal">
+<div class="relative z-10 overflow-hidden group">
+<img class="w-full h-[600px] object-cover rounded-sm transition-transform duration-1000 group-hover:scale-110" data-alt="An exquisite fine-dining plate." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzEPrfDcYiR3sWoqTU2U3u8L2g2gHWq_kzqeOVJAl55DEkS_qfgpwYXDRCB5KD_KfCn75JSe0k0N0ir29z-ggUXMAjeky43pM5yibUn3V672JrHgVBnw29XsYcz6X8_odSWe6Aik0HcBJehzY8XpMSC-o7l4wJLCbs6V47JrcRe4RRkH27RpoT-KyGY7zI8ySD14sn822JU5kcDea0bXrOJot0fSsow-iXtTBrYl4yzd105D9iaMFmblEWrLcIB9SPmhLoVu3dBBY"/>
+</div>
+<!-- Overlapping card -->
+<div class="absolute -bottom-10 -right-10 md:right-10 bg-surface-container-low p-8 max-w-xs z-20 border border-outline-variant/30 reveal [transition-delay:400ms]">
+<span class="font-body-md text-[10px] uppercase tracking-widest text-bronze block mb-2">Chef's Selection</span>
+<p class="font-body-md text-body-md italic text-on-primary-fixed">
+                            "Experience the fusion of traditional dining flavors with contemporary European techniques."
+                        </p>
+</div>
+<!-- Background texture/shape -->
+<div class="absolute top-10 -left-10 w-full h-full border border-bronze/20 -z-10"></div>
+</div>
+<div class="w-full lg:w-1/2 reveal [transition-delay:300ms]">
+<h2 class="font-display-lg text-headline-lg mb-8 italic">Culinary Artistry</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 leading-relaxed">
+                        Our kitchen is a laboratory of taste, where seasonal ingredients are transformed into unforgettable dining experiences. From intimate dinners to high-energy celebrations, our menu tells a global story through local excellence.
+                    </p>
+<a class="group inline-flex items-center gap-4 text-primary font-body-md text-label-md uppercase tracking-widest font-bold" href="menu.html">
+                        Explore the menu
+                        <span class="material-symbols-outlined transition-transform group-hover:translate-x-2 text-bronze" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials Slider (Simplified functionality) -->
+<section class="py-section-padding-desktop bg-navy-deep text-white overflow-hidden">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="flex justify-between items-end mb-16 reveal">
+<div>
+<span class="font-body-md text-label-md uppercase tracking-[0.3em] text-bronze mb-4 block">Guest Experiences</span>
+<h2 class="font-display-lg text-headline-lg">What Our Guests Say</h2>
+</div>
+<div class="flex gap-4">
+<button class="w-12 h-12 border border-white/20 flex items-center justify-center hover:bg-white hover:text-navy-deep transition-all group active:scale-95">
+<span class="material-symbols-outlined transition-transform group-hover:-translate-x-1" data-icon="west">west</span>
+</button>
+<button class="w-12 h-12 border border-white/20 flex items-center justify-center hover:bg-white hover:text-navy-deep transition-all group active:scale-95">
+<span class="material-symbols-outlined transition-transform group-hover:translate-x-1" data-icon="east">east</span>
+</button>
+</div>
+</div>
+<div class="relative bg-white/5 p-12 md:p-20 backdrop-blur-sm border-l-4 border-bronze reveal [transition-delay:300ms]">
+<div class="flex text-bronze gap-1 mb-8">
+<span class="material-symbols-outlined" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<blockquote class="font-display-lg text-headline-md md:text-headline-lg mb-12 italic leading-tight">
+                    "The most sophisticated lounge in Lekki. The attention to detail in the decor and the quality of service is unmatched. Truly a 5-star experience."
+                </blockquote>
+<div class="flex items-center gap-4 group cursor-pointer">
+<div class="overflow-hidden rounded-full w-16 h-16 grayscale hover:grayscale-0 transition-all duration-500">
+<img alt="Guest profile" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCKDUo4ANWF5pbEu8X0_6PsF5UWrUM3s0s4D_A6HoWqWT3wwcSMxQMjGNQkoK9sGV3h9oMRP4_1xLYZKLLjooIObllocF2G5prHW6EcSA-3vlj4AsR4glh8tbrPBC8YSY8JWu0l7Eai-8OfNrxyAexVFr4F_MRFQxO3clRL6KE-oFVTWxp-uyQVgUMGAp49bAnhBQRl8RIM_ajhINBF2sZpMxa4R7JFLWQcu21ZDqxMw6QTl1E3ucARTKegm0mXg3k2wqYiJFpnrdU"/>
+</div>
+<div>
+<cite class="font-body-md text-body-lg font-bold not-italic group-hover:text-bronze transition-colors">Chidi Okafor</cite>
+<span class="block font-body-md text-label-md text-white/50 uppercase tracking-widest">Lagos Business Executive</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-primary text-on-primary">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter max-w-container-max mx-auto px-margin-desktop py-section-padding-desktop border-b border-white/10">
+<div class="space-y-8 reveal">
+<div class="flex items-center gap-4">
+    <img src="assets/logo.jpg" alt="Stories Lagos Logo" class="h-14 w-14 rounded-full object-cover border border-white/10">
+    <h2 class="font-display-lg text-headline-lg text-on-primary tracking-tighter uppercase">STORIES LAGOS</h2>
+</div>
+<p class="font-body-md text-body-md text-outline-variant max-w-xs">
+                    The heart of Lekki's nightlife. Defined by elegance, curated by experts, enjoyed by you.
+                </p>
+</div>
+<div class="space-y-8 reveal [transition-delay:200ms]">
+<h4 class="font-body-md text-label-md uppercase tracking-widest text-bronze">Connect</h4>
+<ul class="space-y-4">
+<li><a class="font-body-md text-body-md text-outline-variant hover:text-secondary-fixed transition-colors" href="https://www.instagram.com/storieslagos/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+<li><a class="font-body-md text-body-md text-outline-variant hover:text-secondary-fixed transition-colors" href="https://web.facebook.com/profile.php?id=100093518182707" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+<li><a class="font-body-md text-body-md text-outline-variant hover:text-secondary-fixed transition-colors" href="#">Twitter</a></li>
+</ul>
+</div>
+<div class="space-y-8 reveal [transition-delay:400ms]">
+<h4 class="font-body-md text-label-md uppercase tracking-widest text-bronze">Location</h4>
+<p class="font-body-md text-body-md text-outline-variant">Lekki Phase 1, Lagos</p>
+<p class="font-body-md text-body-md text-outline-variant"><a href="tel:09036499010" class="hover:text-secondary transition-colors">0903 649 9010</a></p>
+<a class="inline-block font-body-md text-label-md uppercase tracking-widest text-on-primary border-b border-bronze pb-1 hover:text-bronze transition-colors" href="https://maps.app.goo.gl/zNDU3kV7bwN6JDW47" target="_blank" rel="noopener noreferrer">Get Directions</a>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-margin-desktop py-8 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-body-md text-[12px] text-outline-variant tracking-widest">© 2026 STORIES LAGOS. ALL RIGHTS RESERVED.</p>
+<div class="flex gap-8">
+<a class="font-body-md text-[12px] text-outline-variant hover:text-on-primary transition-all" href="#">Privacy Policy</a>
+<a class="font-body-md text-[12px] text-outline-variant hover:text-on-primary transition-all" href="#">Terms of Service</a>
+</div>
+</div>
+</footer>
+<script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-xl', 'bg-surface/95', 'py-4');
+                nav.classList.remove('bg-surface/80', 'py-6');
+            } else {
+                nav.classList.remove('shadow-xl', 'bg-surface/95', 'py-4');
+                nav.classList.add('bg-surface/80', 'py-6');
+            }
+        });
+
+        // Hero Background Zoom
+        window.addEventListener('load', () => {
+            const heroBg = document.getElementById('hero-bg');
+            if (heroBg) {
+                heroBg.style.transform = 'scale(1)';
+            }
+        });
+
+        // Intersection Observer for Reveal Animations
+        const revealCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    // Once revealed, no need to watch anymore
+                    // observer.unobserve(entry.target);
+                }
+            });
+        };
+
+        const revealObserver = new IntersectionObserver(revealCallback, {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            revealObserver.observe(el);
+        });
+
+        // Handle Reduced Motion
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            document.querySelectorAll('.reveal').forEach(el => {
+                el.classList.add('active');
+                el.style.transition = 'none';
+            });
+        }
+    </script>
+</body></html>

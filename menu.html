@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Menu | STORIES LAGOS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed": "#061a3c",
+                    "surface-container": "#eeeeee",
+                    "on-error": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "on-tertiary-container": "#828485",
+                    "surface-dim": "#dadada",
+                    "outline": "#75777f",
+                    "surface-variant": "#e2e2e2",
+                    "primary": "#000000",
+                    "surface-bright": "#f9f9f9",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-fixed-dim": "#e3c19a",
+                    "tertiary": "#000000",
+                    "on-primary-container": "#7384ab",
+                    "outline-variant": "#c5c6cf",
+                    "primary-fixed": "#d8e2ff",
+                    "primary-container": "#061a3c",
+                    "on-secondary-fixed": "#2a1801",
+                    "surface-container-low": "#f3f3f4",
+                    "secondary-container": "#fedab1",
+                    "tertiary-fixed-dim": "#c5c7c8",
+                    "surface": "#f9f9f9",
+                    "tertiary-container": "#191c1d",
+                    "on-surface": "#1a1c1c",
+                    "tertiary-fixed": "#e1e3e4",
+                    "inverse-surface": "#2f3131",
+                    "secondary-fixed": "#ffddb7",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed-variant": "#5a4225",
+                    "on-surface-variant": "#44474e",
+                    "on-primary-fixed-variant": "#36466a",
+                    "secondary": "#745a3a",
+                    "surface-container-high": "#e8e8e8",
+                    "error-container": "#ffdad6",
+                    "primary-fixed-dim": "#b5c6f1",
+                    "background": "#f9f9f9",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-fixed": "#191c1d",
+                    "on-background": "#1a1c1c",
+                    "surface-container-highest": "#e2e2e2",
+                    "on-tertiary-fixed-variant": "#454748",
+                    "on-secondary-container": "#785e3e",
+                    "inverse-primary": "#b5c6f1",
+                    "error": "#ba1a1a",
+                    "surface-tint": "#4d5e83",
+                    "on-tertiary": "#ffffff",
+                    "inverse-on-surface": "#f0f1f1"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "80px",
+                    "base": "8px",
+                    "section-padding-desktop": "120px",
+                    "section-padding-mobile": "64px",
+                    "gutter": "24px",
+                    "container-max": "1280px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Playfair Display"],
+                    "body-lg": ["Plus Jakarta Sans"],
+                    "headline-lg-mobile": ["Playfair Display"],
+                    "headline-md": ["Playfair Display"],
+                    "headline-lg": ["Playfair Display"],
+                    "display-lg-mobile": ["Playfair Display"],
+                    "body-md": ["Plus Jakarta Sans"],
+                    "label-md": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "headline-lg": ["48px", {"lineHeight": "56px", "fontWeight": "600"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "48px", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .bronze-shadow { box-shadow: 0px 10px 30px rgba(163, 133, 98, 0.08); }
+        .menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 48px; }
+        .category-icon { font-variation-settings: 'FILL' 0, 'wght' 300; color: #745a3a; font-size: 32px; }
+        
+        @media (prefers-reduced-motion: no-preference) {
+            .reveal-on-scroll {
+                opacity: 0;
+                transform: translateY(30px);
+                transition: all 0.8s cubic-bezier(0.21, 0.45, 0.32, 0.9);
+            }
+            .reveal-on-scroll.active {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            .parallax-element {
+                transition: transform 0.1s linear;
+            }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface selection:bg-secondary-container">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface-container/80 backdrop-blur-md border-b border-outline-variant/10">
+<nav class="flex justify-between items-center max-w-container-max mx-auto px-margin-desktop py-6">
+<a class="flex items-center gap-3 hover:opacity-90 transition-opacity" href="index.html">
+                <img src="assets/logo.jpg" alt="Stories Lagos Logo" class="h-10 w-10 rounded-full object-cover border border-bronze/20">
+                <span class="font-display-lg text-headline-md text-primary dark:text-primary-fixed tracking-tighter uppercase">STORIES LAGOS</span>
+            </a>
+<div class="hidden md:flex items-center gap-10">
+<a class="font-body-md text-body-md uppercase tracking-widest text-on-surface-variant dark:text-outline-variant hover:text-secondary transition-colors duration-300" href="index.html">Home</a>
+<a class="font-body-md text-body-md uppercase tracking-widest text-primary dark:text-primary-fixed font-bold relative after:content-[''] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-1 after:h-1 after:bg-secondary after:rounded-full" href="menu.html">Menu</a>
+<a class="font-body-md text-body-md uppercase tracking-widest text-on-surface-variant dark:text-outline-variant hover:text-secondary transition-colors duration-300" href="gallery.html">Gallery</a>
+<a class="font-body-md text-body-md uppercase tracking-widest text-on-surface-variant dark:text-outline-variant hover:text-secondary transition-colors duration-300" href="contact.html">Contact</a>
+</div>
+<a href="reservations.html" class="bg-primary text-on-primary px-8 py-3 rounded-none font-label-md text-label-md uppercase tracking-widest hover:bg-secondary transition-all active:scale-95 inline-block text-center">
+                Book a Table
+            </a>
+</nav>
+</header>
+<main class="pt-24">
+<!-- Hero Section -->
+<section class="relative h-[614px] flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover grayscale-[20%] brightness-50 parallax-element" data-alt="A high-end luxury restaurant interior with mood lighting and elegant place settings." id="hero-image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDV-6sKHsbSUqla6iVxds1uQkw1G--bcfmT_gw6nekvhn6y6_qt8bH1JfA7gJ0_-1YHGZD_BUzTdG58IHEb3_bTPF66-DgyfQgo34TjOK8V2t1TcFyRVJRzy7Jx1EklWG5v9fnIv7UQUFY3C-zc-RAo8dVPUTLg_uPIm30PXkJvvQnOf9CCbL2ftm_HhEl58UlYDINopSicL3G2TG8woSIbpKTwa11xxkVPK-HT5c4urc_QPihC8NEi11NY6x82mRoLBc8TjL9yTN4"/>
+</div>
+<div class="relative z-10 text-center text-on-primary px-margin-desktop reveal-on-scroll active">
+<span class="block font-label-md text-label-md uppercase tracking-[0.3em] text-secondary mb-4">GREAT FOOD • COCKTAIL • SHISHA</span>
+<h1 class="font-display-lg text-display-lg mb-6">The Menu</h1>
+<p class="font-body-lg text-body-lg max-w-2xl mx-auto opacity-90">A curated collection of flavors where local heritage meets contemporary global techniques.</p>
+</div>
+</section>
+<!-- Category Filter -->
+<section class="sticky top-[88px] z-40 bg-surface py-6 border-b border-outline-variant/30 transition-all duration-500">
+<div class="max-w-container-max mx-auto px-margin-desktop flex flex-wrap justify-center gap-base md:gap-gutter">
+<a class="px-6 py-2 rounded-full font-label-md text-label-md uppercase tracking-widest border border-secondary bg-secondary text-white transition-all duration-300 hover:shadow-lg" href="#small-plates">Small Plates</a>
+<a class="px-6 py-2 rounded-full font-label-md text-label-md uppercase tracking-widest border border-outline-variant text-on-surface-variant hover:border-secondary hover:text-secondary hover:bg-surface-container-low transition-all duration-300" href="#main-courses">Main Courses</a>
+<a class="px-6 py-2 rounded-full font-label-md text-label-md uppercase tracking-widest border border-outline-variant text-on-surface-variant hover:border-secondary hover:text-secondary hover:bg-surface-container-low transition-all duration-300" href="#cocktails">Cocktails</a>
+<a class="px-6 py-2 rounded-full font-label-md text-label-md uppercase tracking-widest border border-outline-variant text-on-surface-variant hover:border-secondary hover:text-secondary hover:bg-surface-container-low transition-all duration-300" href="#vines">Vines</a>
+</div>
+</section>
+<!-- Small Plates -->
+<section class="py-section-padding-desktop max-w-container-max mx-auto px-margin-desktop" id="small-plates">
+<div class="flex items-center gap-4 mb-16 reveal-on-scroll">
+<span class="material-symbols-outlined category-icon">restaurant</span>
+<h2 class="font-headline-lg text-headline-lg">Small Plates</h2>
+<div class="h-[1px] flex-grow bg-outline-variant/30 ml-4"></div>
+</div>
+<div class="menu-grid">
+<!-- Item 1 -->
+<div class="group reveal-on-scroll" style="transition-delay: 100ms;">
+<div class="overflow-hidden rounded-lg mb-6 bronze-shadow border border-transparent group-hover:border-secondary/20 group-hover:-translate-y-2 transition-all duration-500">
+<img class="w-full aspect-[4/3] object-cover group-hover:scale-110 transition-transform duration-1000" data-alt="Gourmet small plate featuring seared scallops." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCRbpYfExdVZmKnaj47keIRngwYFebBmQ-UAz_nhmh8LEEshcZHVSXtzR7pCSCaxfW5LCvhYo3vBVllz581gHvP8yZfc70mrvM3a51aNBWjA-AKFBtZ5qFT7Rdpjlg5MKHegwxeO_7GpWCK0Bmo-YHA-ZVG3C7ruZ7TaozzEulZQkY0v7h2CdYuJ25bZ0vinv38U-rJewh5hjcfFgqr77VDFcuVIELqp42wXLaLX45D5nVbLavssVtxizw7yau7cCMtRZuBtqYOmi0"/>
+</div>
+<div class="flex justify-between items-baseline mb-2">
+<h3 class="font-headline-md text-headline-md text-primary group-hover:text-secondary transition-colors duration-300">Pan-Seared Scallops</h3>
+<span class="font-body-md text-secondary font-bold">₦12,500</span>
+</div>
+<p class="font-body-md text-on-surface-variant leading-relaxed">Mint pea purée, chorizo crumble, and micro-cilantro garnish.</p>
+</div>
+<!-- Item 2 -->
+<div class="group reveal-on-scroll" style="transition-delay: 200ms;">
+<div class="overflow-hidden rounded-lg mb-6 bronze-shadow border border-transparent group-hover:border-secondary/20 group-hover:-translate-y-2 transition-all duration-500">
+<img class="w-full aspect-[4/3] object-cover group-hover:scale-110 transition-transform duration-1000" data-alt="Exotic beef carpaccio thinly sliced." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAN0NzN1j7LsLems7S4onHAIT2R4CPbzxNExzlb2zSR6qvn7yH4rbmxSluo8vtE79NZ4qO2Qj_WnYgLLqbZGxnYWSTz4uHako2UGtk8WwhVCkIlfTCluk-mAPQfo3Es3ptaJJxgwmwugvyBIsCw3SIpLkBJa2dSrQnnfJPWf85RPnEsuwm_NRIR5gmMB2fyOEtmwBjWox4MSUl9iQ3Pv36c1KzYX-MRom5YqK_ILUcRtvppBA2ZiCwQURLqAzj3BOCTAjb4mEAkKxo"/>
+</div>
+<div class="flex justify-between items-baseline mb-2">
+<h3 class="font-headline-md text-headline-md text-primary group-hover:text-secondary transition-colors duration-300">Truffle Beef Carpaccio</h3>
+<span class="font-body-md text-secondary font-bold">₦14,000</span>
+</div>
+<p class="font-body-md text-on-surface-variant leading-relaxed">Aged wagyu, wild rocket, 24-month parmesan, and white truffle essence.</p>
+</div>
+</div>
+</section>
+<!-- Main Courses -->
+<section class="bg-primary py-section-padding-desktop overflow-hidden" id="main-courses">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="flex items-center gap-4 mb-16 reveal-on-scroll">
+<span class="material-symbols-outlined category-icon text-secondary-fixed">dinner_dining</span>
+<h2 class="font-headline-lg text-headline-lg text-on-primary">Main Courses</h2>
+<div class="h-[1px] flex-grow bg-white/20 ml-4"></div>
+</div>
+<!-- Asymmetric Layout for Mains -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+<div class="relative reveal-on-scroll">
+<div class="aspect-[3/4] rounded-lg overflow-hidden bronze-shadow group">
+<img class="w-full h-full object-cover parallax-element" data-alt="A perfectly cooked ribeye steak." id="ribeye-image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiNsXbbGzhiFXfgh9uGVpg7hpg-mEmuPHeJVRNFNi4LBycnr6F664oXTf6DRVsxX8tG-Nvv_03x6wqWSHpKoyB8KczIPTsSwndCMTMf8kaGDHCOahYSK0b4BwqG7fWCWj5GN4Mq__rzTJhoYrTirXj1H77iSP4nZ7Thiec8iGWu5rK7IqFumvt6MzayMecTdogquTrqDuvfR_HBZOEHzY6nfy-wTf9OuCEoDRfgjt0xB5uH5I2YEiPM3XRdRB3RwcfaP7C2N-JC6I"/>
+</div>
+<div class="absolute -bottom-10 -right-10 bg-white p-12 max-w-sm hidden md:block border border-secondary/20 shadow-2xl reveal-on-scroll" style="transition-delay: 300ms;">
+<span class="block font-label-md text-label-md text-secondary uppercase tracking-widest mb-2">Chef's Signature</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-4">Prime Ribeye Steak</h3>
+<p class="font-body-md text-on-surface-variant mb-6">45-day dry-aged beef, served with bone marrow butter and seasonal tubers.</p>
+<span class="font-display-lg text-headline-lg text-secondary">₦48,000</span>
+</div>
+</div>
+<div class="space-y-12">
+<div class="border-l border-secondary/30 pl-8 group reveal-on-scroll" style="transition-delay: 100ms;">
+<div class="flex justify-between items-baseline mb-2">
+<h3 class="font-headline-md text-headline-md text-on-primary group-hover:text-secondary transition-colors duration-300">Lagos Lagoon Grouper</h3>
+<span class="font-body-md text-secondary font-bold">₦32,500</span>
+</div>
+<p class="font-body-md text-outline-variant leading-relaxed">Local catch, coconut-infused yam purée, and citrus gastrique.</p>
+</div>
+<div class="border-l border-secondary/30 pl-8 group reveal-on-scroll" style="transition-delay: 200ms;">
+<div class="flex justify-between items-baseline mb-2">
+<h3 class="font-headline-md text-headline-md text-on-primary group-hover:text-secondary transition-colors duration-300">Wild Mushroom Risotto</h3>
+<span class="font-body-md text-secondary font-bold">₦28,000</span>
+</div>
+<p class="font-body-md text-outline-variant leading-relaxed">Arborio rice, porcini dust, truffle pearls, and crispy sage.</p>
+</div>
+<div class="border-l border-secondary/30 pl-8 group reveal-on-scroll" style="transition-delay: 300ms;">
+<div class="flex justify-between items-baseline mb-2">
+<h3 class="font-headline-md text-headline-md text-on-primary group-hover:text-secondary transition-colors duration-300">Roasted Herb Lamb</h3>
+<span class="font-body-md text-secondary font-bold">₦42,000</span>
+</div>
+<p class="font-body-md text-outline-variant leading-relaxed">Herb-crusted rack, red wine reduction, and roasted root vegetables.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Signature Cocktails -->
+<section class="py-section-padding-desktop max-w-container-max mx-auto px-margin-desktop" id="cocktails">
+<div class="flex items-center gap-4 mb-16 reveal-on-scroll">
+<span class="material-symbols-outlined category-icon">local_bar</span>
+<h2 class="font-headline-lg text-headline-lg">Signature Cocktails</h2>
+<div class="h-[1px] flex-grow bg-outline-variant/30 ml-4"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<!-- Cocktail 1 -->
+<div class="bg-surface-container-low p-8 rounded-lg border border-outline-variant/10 hover:border-secondary hover:shadow-xl group transition-all duration-500 reveal-on-scroll" style="transition-delay: 100ms;">
+<div class="mb-8 overflow-hidden rounded-lg">
+<img class="w-full aspect-square object-cover group-hover:scale-110 transition-transform duration-1000" data-alt="A vibrant craft cocktail served in a crystal glass." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfiY6Y_kHmlffCCJo9XRjEWMOtYbbPoj_cZ3BsESRuunnohG_7gF6ny3hzTmqHRRt2SY5pSum0d8ZN4y6qZcgJ0mIUKw0DFYkZYI_hh3xcVk9xYycrA40wPB4JYe8xd3aIfdrMAlbwMCmvLtxWMECH8F_58FSh4nOGkV037-Q3Qo9Xl116wDlIt0_YhnEitULlVMacL8roGERXdrN18aCBKLdPkDHXC8amYW5jxC9gtIbnHgz4MnERP1Z8j-mEpKrHt85alXReuYM"/>
+</div>
+<div class="flex justify-between items-center mb-4">
+<h3 class="font-label-md text-label-md uppercase tracking-widest text-primary group-hover:text-secondary transition-colors">Lagos Sunset</h3>
+<span class="font-body-md text-secondary">₦9,500</span>
+</div>
+<p class="font-body-md text-on-surface-variant text-sm">Hibiscus-infused gin, elderflower liqueur, sparkling rosé, and fresh mint.</p>
+</div>
+<!-- Cocktail 2 -->
+<div class="bg-surface-container-low p-8 rounded-lg border border-outline-variant/10 hover:border-secondary hover:shadow-xl group transition-all duration-500 reveal-on-scroll" style="transition-delay: 200ms;">
+<div class="mb-8 overflow-hidden rounded-lg">
+<img class="w-full aspect-square object-cover group-hover:scale-110 transition-transform duration-1000" data-alt="A classic Old Fashioned cocktail." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAho1VJMAWEQwioMBKk1CzE1VH2KcoQg4XY2V0KBEEiQH7R18zfyHDZxD16ZDwrHf9gGv5IsfrXUTDkfMBSW4kRiNXgh67WKJIF_RS2UiZKaE5JMQzr1l16z-t_9QnExjAchl0ludiq8OXXG08WJfCx__sIL0b11QoHxkYn-4M2n421bN4lINe4RsxdbtUnaUXh8XIWs204tRA4Wm4XY3fIcrBn4cNBMHieyuBfXnI-NWYn2R89NvJrQj4K0TLadVRishpnlhrIPiE"/>
+</div>
+<div class="flex justify-between items-center mb-4">
+<h3 class="font-label-md text-label-md uppercase tracking-widest text-primary group-hover:text-secondary transition-colors">Midnight Story</h3>
+<span class="font-body-md text-secondary">₦10,500</span>
+</div>
+<p class="font-body-md text-on-surface-variant text-sm">Smoked bourbon, maple reduction, black walnut bitters, and cedarwood smoke.</p>
+</div>
+<!-- Cocktail 3 -->
+<div class="bg-surface-container-low p-8 rounded-lg border border-outline-variant/10 hover:border-secondary hover:shadow-xl group transition-all duration-500 reveal-on-scroll" style="transition-delay: 300ms;">
+<div class="mb-8 overflow-hidden rounded-lg">
+<img class="w-full aspect-square object-cover group-hover:scale-110 transition-transform duration-1000" data-alt="A refined martini served in a chilled glass." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuZeKEHS2pZxgE7LY_-h3pXow8ceSXscpEuDzKq3aajRavnEf_2EY27Y-rnvCHEXygZI9k8ZtRBeULd8BQMB3ngKlY2rFJoe3hOwoRi1dkxbiIUpLu4V7cslHQqp482XeV7u8YlmiYaChzo4VRUj5iqmIpSzKWXfhthXtHusnoRAKtZpOPyBSW_foQAV2qdAko6ElXMFMD_mz5neUasP-fUGKpJ2is4cWgsyB2Qu2CaTZqJmwEhSVnf2B7dH-WMFrwWaDsTFgIsWI"/>
+</div>
+<div class="flex justify-between items-center mb-4">
+<h3 class="font-label-md text-label-md uppercase tracking-widest text-primary group-hover:text-secondary transition-colors">Elegance Fizz</h3>
+<span class="font-body-md text-secondary">₦9,000</span>
+</div>
+<p class="font-body-md text-on-surface-variant text-sm">Premium vodka, lychee purée, lime juice, and a splash of prosecco.</p>
+</div>
+</div>
+</section>
+<!-- Newsletter / Reservation CTA -->
+<section class="bg-surface-container-low py-section-padding-desktop">
+<div class="max-w-4xl mx-auto px-margin-desktop text-center reveal-on-scroll">
+<h2 class="font-display-lg text-headline-lg mb-8">Plan Your Evening</h2>
+<p class="font-body-lg text-body-lg mb-12 text-on-surface-variant">Whether it's an intimate dinner or a grand celebration, let us craft your perfect story.</p>
+<div class="flex flex-col md:flex-row gap-gutter justify-center">
+<a href="reservations.html" class="bg-primary text-on-primary px-12 py-4 rounded-none font-label-md text-label-md uppercase tracking-widest hover:bg-secondary transition-all hover:-translate-y-1 inline-block text-center">Book Online</a>
+<a href="contact.html" class="border border-secondary text-secondary px-12 py-4 rounded-none font-label-md text-label-md uppercase tracking-widest hover:bg-secondary hover:text-white transition-all hover:-translate-y-1 inline-block text-center">Contact Concierge</a>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-primary dark:bg-tertiary-container">
+<div class="max-w-container-max mx-auto px-margin-desktop py-section-padding-desktop">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+    <img src="assets/logo.jpg" alt="Stories Lagos Logo" class="h-14 w-14 rounded-full object-cover border border-white/10">
+    <div class="font-display-lg text-headline-lg text-on-primary dark:text-tertiary-fixed tracking-tighter uppercase">STORIES LAGOS</div>
+</div>
+<p class="font-body-md text-body-md text-outline-variant max-w-xs">The heart of Lekki's nightlife. Defined by elegance, curated by experts, enjoyed by you.</p>
+</div>
+<div class="space-y-6">
+<h4 class="font-label-md text-label-md text-secondary uppercase tracking-widest">Connect</h4>
+<ul class="space-y-4 font-body-md text-body-md">
+<li><a class="text-outline-variant hover:text-secondary-fixed-dim transition-colors" href="https://www.instagram.com/storieslagos/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+<li><a class="text-outline-variant hover:text-secondary-fixed-dim transition-colors" href="https://web.facebook.com/profile.php?id=100093518182707" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+<li><a class="text-outline-variant hover:text-secondary-fixed-dim transition-colors" href="#">Twitter</a></li>
+</ul>
+</div>
+<div class="space-y-6">
+<h4 class="font-label-md text-label-md text-secondary uppercase tracking-widest">Location</h4>
+<p class="font-body-md text-body-md text-outline-variant">Lekki Phase I, Lagos<br/><a href="tel:09036499010" class="hover:text-secondary transition-colors">0903 649 9010</a></p>
+<a class="inline-block font-label-md text-label-md text-on-primary border-b border-secondary pb-1 hover:text-secondary transition-all" href="https://maps.app.goo.gl/zNDU3kV7bwN6JDW47" target="_blank" rel="noopener noreferrer">Get Directions</a>
+</div>
+</div>
+<div class="mt-20 pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="font-body-md text-sm text-outline-variant">© 2026 STORIES LAGOS. ALL RIGHTS RESERVED.</p>
+<div class="flex gap-8">
+<a class="font-body-md text-sm text-outline-variant hover:text-on-primary transition-all" href="#">Privacy Policy</a>
+<a class="font-body-md text-sm text-outline-variant hover:text-on-primary transition-all" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Check for reduced motion preference
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        // Subtle scroll reveal effect
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        if (!prefersReducedMotion) {
+            document.querySelectorAll('.reveal-on-scroll').forEach(el => {
+                revealObserver.observe(el);
+            });
+        } else {
+            // Immediately show everything if motion is reduced
+            document.querySelectorAll('.reveal-on-scroll').forEach(el => el.classList.add('active'));
+        }
+
+        // Parallax Effect
+        if (!prefersReducedMotion) {
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                
+                // Hero parallax
+                const heroImage = document.getElementById('hero-image');
+                if (heroImage) {
+                    heroImage.style.transform = `translateY(${scrolled * 0.3}px)`;
+                }
+
+                // Ribeye image parallax (Subtle)
+                const ribeyeImage = document.getElementById('ribeye-image');
+                if (ribeyeImage) {
+                    const rect = ribeyeImage.getBoundingClientRect();
+                    if (rect.top < window.innerHeight && rect.bottom > 0) {
+                        const relativeScroll = (window.innerHeight - rect.top) / window.innerHeight;
+                        ribeyeImage.style.transform = `scale(1.1) translateY(${(relativeScroll - 0.5) * 40}px)`;
+                    }
+                }
+            });
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    // Filter button active state updates
+                    if (this.parentElement.classList.contains('justify-center')) {
+                        this.parentElement.querySelectorAll('a').forEach(btn => {
+                            btn.classList.remove('bg-secondary', 'text-white');
+                            btn.classList.add('border-outline-variant', 'text-on-surface-variant');
+                        });
+                        this.classList.add('bg-secondary', 'text-white');
+                        this.classList.remove('border-outline-variant', 'text-on-surface-variant');
+                    }
+
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 150,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body></html>

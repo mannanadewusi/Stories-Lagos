@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Reservations | STORIES LAGOS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed": "#061a3c",
+                    "surface-container": "#eeeeee",
+                    "on-error": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "on-tertiary-container": "#828485",
+                    "surface-dim": "#dadada",
+                    "outline": "#75777f",
+                    "surface-variant": "#e2e2e2",
+                    "primary": "#000000",
+                    "surface-bright": "#f9f9f9",
+                    "surface-container-lowest": "#ffffff",
+                    "secondary-fixed-dim": "#e3c19a",
+                    "tertiary": "#000000",
+                    "on-primary-container": "#7384ab",
+                    "outline-variant": "#c5c6cf",
+                    "primary-fixed": "#d8e2ff",
+                    "primary-container": "#061a3c",
+                    "on-secondary-fixed": "#2a1801",
+                    "surface-container-low": "#f3f3f4",
+                    "secondary-container": "#fedab1",
+                    "tertiary-fixed-dim": "#c5c7c8",
+                    "surface": "#f9f9f9",
+                    "tertiary-container": "#191c1d",
+                    "on-surface": "#1a1c1c",
+                    "tertiary-fixed": "#e1e3e4",
+                    "inverse-surface": "#2f3131",
+                    "secondary-fixed": "#ffddb7",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed-variant": "#5a4225",
+                    "on-surface-variant": "#44474e",
+                    "on-primary-fixed-variant": "#36466a",
+                    "secondary": "#745a3a",
+                    "surface-container-high": "#e8e8e8",
+                    "error-container": "#ffdad6",
+                    "primary-fixed-dim": "#b5c6f1",
+                    "background": "#f9f9f9",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-fixed": "#191c1d",
+                    "on-background": "#1a1c1c",
+                    "surface-container-highest": "#e2e2e2",
+                    "on-tertiary-fixed-variant": "#454748",
+                    "on-secondary-container": "#785e3e",
+                    "inverse-primary": "#b5c6f1",
+                    "error": "#ba1a1a",
+                    "surface-tint": "#4d5e83",
+                    "on-tertiary": "#ffffff",
+                    "inverse-on-surface": "#f0f1f1"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-desktop": "80px",
+                    "base": "8px",
+                    "section-padding-desktop": "120px",
+                    "section-padding-mobile": "64px",
+                    "gutter": "24px",
+                    "container-max": "1280px"
+            },
+            "fontFamily": {
+                    "display-lg": ["Playfair Display"],
+                    "body-lg": ["Plus Jakarta Sans"],
+                    "headline-lg-mobile": ["Playfair Display"],
+                    "headline-md": ["Playfair Display"],
+                    "headline-lg": ["Playfair Display"],
+                    "display-lg-mobile": ["Playfair Display"],
+                    "body-md": ["Plus Jakarta Sans"],
+                    "label-md": ["Plus Jakarta Sans"]
+            },
+            "fontSize": {
+                    "display-lg": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "headline-lg": ["48px", {"lineHeight": "56px", "fontWeight": "600"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "48px", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .nav-link-active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 4px;
+            background-color: #745a3a;
+            border-radius: 9999px;
+        }
+        .luxury-shadow {
+            box-shadow: 0px 10px 30px rgba(163, 133, 98, 0.08);
+        }
+
+        /* Animation Keyframes */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Input Interaction Styles */
+        .form-input-focus {
+            transition: all 0.3s ease;
+            box-shadow: 0 0 0 0 rgba(116, 90, 58, 0);
+        }
+        .form-input-focus:focus {
+            background-color: #ffffff;
+            box-shadow: 0 0 0 2px rgba(116, 90, 58, 0.3);
+            transform: translateY(-1px);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .animate-fade-in-up, 
+            .reveal-on-scroll,
+            .form-input-focus,
+            .transition-all,
+            .hover\:scale-110 {
+                animation: none !important;
+                transition: none !important;
+                transform: none !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface-container/80 backdrop-blur-md transition-all duration-500">
+<div class="flex justify-between items-center max-w-container-max mx-auto px-margin-desktop py-6 transition-all duration-300" id="nav-container">
+<a class="flex items-center gap-3 hover:opacity-90 transition-opacity" href="index.html">
+    <img src="assets/logo.jpg" alt="Stories Lagos Logo" class="h-10 w-10 rounded-full object-cover border border-bronze/20">
+    <span class="font-display-lg text-headline-md text-primary dark:text-primary-fixed tracking-tighter uppercase">STORIES LAGOS</span>
+</a>
+<div class="hidden md:flex items-center gap-12">
+<a class="font-body-md text-body-md uppercase tracking-widest text-on-surface-variant dark:text-outline-variant hover:text-secondary transition-colors duration-300" href="index.html">Home</a>
+<a class="font-body-md text-body-md uppercase tracking-widest text-on-surface-variant dark:text-outline-variant hover:text-secondary transition-colors duration-300" href="menu.html">Menu</a>
+<a class="font-body-md text-body-md uppercase tracking-widest text-primary dark:text-primary-fixed font-bold relative nav-link-active" href="reservations.html">Reservations</a>
+<a class="font-body-md text-body-md uppercase tracking-widest text-on-surface-variant dark:text-outline-variant hover:text-secondary transition-colors duration-300" href="gallery.html">Gallery</a>
+<a class="font-body-md text-body-md uppercase tracking-widest text-on-surface-variant dark:text-outline-variant hover:text-secondary transition-colors duration-300" href="contact.html">Contact</a>
+</div>
+<a href="reservations.html" class="bg-primary text-on-primary px-8 py-3 font-label-md text-label-md uppercase tracking-widest hover:bg-secondary active:scale-95 transition-all duration-300 inline-block text-center">
+                Book a Table
+            </a>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative h-[614px] flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Atmospheric Lounge Interior" class="w-full h-full object-cover brightness-50" data-alt="A wide-angle shot of a luxurious, high-end restaurant interior at twilight in Lagos. The space features deep navy walls, warm bronze metallic accents, and soft amber lighting from sculptural chandeliers. Large floor-to-ceiling windows reveal a blurred urban skyline. The atmosphere is sophisticated and exclusive, emphasizing high-contrast minimalism and premium textures." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoeAMeihr67K0rsuS5qEdN10z60hiHTccy7FdYLaj9Gk98e0rjniBqdxKG7GyYIIwEQXY2UkaoaHEI48cuWfj8y3uGnTt4RpIuC_4P1wO_2op0ItOseesE-D5U5P50LkSAaTtAhTn6USG8s_PHhMq6izai5BIL8Y19_J2rVmqJhdui8TKA1I0PiV9IeUxV_izuC1tSdjYVZmEBLeTaEybCNCnu8CEwKDNtB5kgu0Wz-8Lvqj6BLIyUaCeNb69CwsesbxkIzaqip8k"/>
+</div>
+<div class="relative z-10 text-center max-w-3xl px-6">
+<span class="font-label-md text-label-md text-secondary-fixed-dim uppercase tracking-[0.3em] mb-4 block animate-fade-in-up" style="animation-delay: 0.1s;">GREAT FOOD • COCKTAIL • SHISHA</span>
+<h1 class="font-display-lg text-display-lg text-on-primary mb-6 animate-fade-in-up" style="animation-delay: 0.2s;">Reservations</h1>
+<p class="font-body-lg text-body-lg text-on-primary/80 animate-fade-in-up" style="animation-delay: 0.3s;">Join us for a curated evening where culinary artistry meets the vibrant soul of Lagos nightlife.</p>
+</div>
+</header>
+<!-- Reservation Form Section -->
+<section class="py-section-padding-desktop bg-surface">
+<div class="max-w-container-max mx-auto px-margin-desktop">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Intro Content -->
+<div class="lg:col-span-5 flex flex-col justify-center">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-8">Elevate Your Evening</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12">Whether it is an intimate date night in our Main Lounge, a high-profile gathering in the VIP Enclave, or a breeze-kissed evening on the Terrace, Stories Lagos offers the perfect backdrop for your narrative.</p>
+<div class="space-y-8">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary text-3xl">restaurant_menu</span>
+<div>
+<h4 class="font-bold text-lg mb-1">Culinary Excellence</h4>
+<p class="text-on-surface-variant">Chef-curated menus that redefine fusion dining.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary text-3xl">wine_bar</span>
+<div>
+<h4 class="font-bold text-lg mb-1">Craft Mixology</h4>
+<p class="text-on-surface-variant">Signature cocktails designed to intrigue the palate.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary text-3xl">event_seat</span>
+<div>
+<h4 class="font-bold text-lg mb-1">Exclusive Enclaves</h4>
+<p class="text-on-surface-variant">Private spaces for those who value discretion.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Form Container -->
+<div class="lg:col-span-7">
+<div class="bg-primary-container p-12 rounded-xl luxury-shadow relative overflow-hidden animate-fade-in-up" style="animation-delay: 0.4s;">
+<!-- Subtle Background Accent -->
+<div class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 bg-secondary/10 rounded-full blur-3xl"></div>
+<form class="relative z-10 space-y-8" id="reservation-form">
+<!-- Step 1: Occasion Details -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-primary-container/70 uppercase transition-colors duration-300">Date</label>
+<input class="w-full bg-surface-container-low border-none rounded-lg p-4 focus:ring-0 text-on-primary-fixed outline-none transition-all form-input-focus" type="date"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-primary-container/70 uppercase transition-colors duration-300">Time</label>
+<select class="w-full bg-surface-container-low border-none rounded-lg p-4 focus:ring-0 text-on-primary-fixed outline-none transition-all appearance-none form-input-focus">
+<option>19:00 PM</option>
+<option>19:30 PM</option>
+<option>20:00 PM</option>
+<option>20:30 PM</option>
+<option>21:00 PM</option>
+<option>21:30 PM</option>
+<option>22:00 PM</option>
+</select>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-primary-container/70 uppercase transition-colors duration-300">Number of Guests</label>
+<select class="w-full bg-surface-container-low border-none rounded-lg p-4 focus:ring-0 text-on-primary-fixed outline-none transition-all appearance-none form-input-focus">
+<option>2 Guests</option>
+<option>3 Guests</option>
+<option>4 Guests</option>
+<option>5 Guests</option>
+<option>6+ Guests (Enquiry)</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-primary-container/70 uppercase transition-colors duration-300">Seating Area</label>
+<select class="w-full bg-surface-container-low border-none rounded-lg p-4 focus:ring-0 text-on-primary-fixed outline-none transition-all appearance-none form-input-focus">
+<option>Main Lounge</option>
+<option>VIP Enclave</option>
+<option>The Terrace</option>
+</select>
+</div>
+</div>
+<!-- Step 2: Contact Info -->
+<div class="space-y-6 pt-4 border-t border-on-primary-container/10">
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-primary-container/70 uppercase transition-colors duration-300">Full Name</label>
+<input class="w-full bg-surface-container-low border-none rounded-lg p-4 focus:ring-0 text-on-primary-fixed outline-none transition-all form-input-focus" placeholder="John Doe" type="text"/>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-primary-container/70 uppercase transition-colors duration-300">Email Address</label>
+<input class="w-full bg-surface-container-low border-none rounded-lg p-4 focus:ring-0 text-on-primary-fixed outline-none transition-all form-input-focus" placeholder="john@example.com" type="email"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-primary-container/70 uppercase transition-colors duration-300">Phone Number</label>
+<input class="w-full bg-surface-container-low border-none rounded-lg p-4 focus:ring-0 text-on-primary-fixed outline-none transition-all form-input-focus" placeholder="+234 800 000 0000" type="tel"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-label-md text-on-primary-container/70 uppercase transition-colors duration-300">Special Requirements</label>
+<textarea class="w-full bg-surface-container-low border-none rounded-lg p-4 focus:ring-0 text-on-primary-fixed outline-none transition-all resize-none form-input-focus" placeholder="Allergies, birthday celebrations, or specific table requests..." rows="3"></textarea>
+</div>
+</div>
+<button class="w-full bg-secondary text-on-primary font-label-md text-label-md uppercase tracking-widest py-5 rounded-lg hover:bg-secondary-fixed-dim hover:text-on-secondary-fixed transition-all duration-300 shadow-lg active:scale-[0.98] relative group overflow-hidden" type="submit">
+<span class="relative z-10">Confirm Reservation</span>
+<div class="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+</button>
+<p class="text-center text-xs text-on-primary-container/50 italic">*A member of our concierge team will contact you for VIP Enclave bookings.</p>
+</form>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Experience Cards Grid -->
+<section class="py-section-padding-desktop bg-white">
+<div class="max-w-container-max mx-auto px-margin-desktop text-center mb-16 reveal-on-scroll">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4">Choose Your Setting</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">Each space at Stories Lagos offers a unique sensory journey tailored to your mood.</p>
+</div>
+<div class="max-w-container-max mx-auto px-margin-desktop grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Main Lounge -->
+<div class="group relative overflow-hidden rounded-xl luxury-shadow bg-surface border border-outline-variant/30 reveal-on-scroll" style="transition-delay: 0.1s;">
+<div class="h-64 overflow-hidden">
+<img alt="Main Lounge" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" data-alt="An elegant restaurant dining room featuring velvet armchairs in deep navy and gold-trimmed tables. The lighting is warm and cinematic, highlighting the fine linen and polished glassware. Minimalist art hangs on the walls, and the overall aesthetic is one of refined, modern luxury in a light-filled space." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxMuuGrxLLxx9h79eYhmP0FxteO2nVhzUrw_2U47olIZOAqlSyck-cXZMcgt4a4l7HpA3LDUfT6wCZIovTkS0E-oFePuAUuRPW2lXjaYpCqg7yR4-FyM0IO8IeJ1Fm75bLeicCN4hWwGLEn4965ALAFlop7GEzQO2BgH_1k9NO3uW2g3lH-NoaeSZW7jXVEdHcuv_BC4OTbG1ykhBxhe0k4BdzNFAmizdjT6PhbiP0sFRn9MEQZmjo-zcNhpEZe4qoV7p0ahAJ9FE"/>
+</div>
+<div class="p-8">
+<h3 class="font-headline-md text-headline-md text-primary mb-4">Main Lounge</h3>
+<p class="text-on-surface-variant mb-6">The heart of Stories. A sophisticated space blending high-end dining with an energetic atmosphere.</p>
+<a href="gallery.html" class="font-label-md text-label-md text-secondary uppercase tracking-widest border-b border-secondary/30 pb-1 hover:border-secondary hover:text-secondary-fixed-dim transition-all inline-block">View Gallery</a>
+</div>
+</div>
+<!-- VIP Enclave -->
+<div class="group relative overflow-hidden rounded-xl luxury-shadow bg-surface border border-outline-variant/30 reveal-on-scroll" style="transition-delay: 0.2s;">
+<div class="h-64 overflow-hidden">
+<img alt="VIP Enclave" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" data-alt="A secluded, dimly lit private VIP lounge with plush leather seating and dark wood accents. The room is bathed in soft, indirect lighting that creates an aura of exclusivity and mystery. Intricate architectural details and high-end materials emphasize the premium nature of this private enclave." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUe93sCoyx1T8go2Wp8FJajUjPrl_QvSCsQw1nH5WuFH8gryZyNVdAJVgteTdlgLO0kkPWDwioxW_3Ilcd3NBuX-eH9dlrrh-_Jy0-96FAj3EzspyTkPi-xB3P9CWKhfd_qLpOg8oUiRrOCbltlbVEUeTeZ2GW7wm0-iYcTq5m1vlOXtiOt77rO-7RejTqQRha5r9z2WWM4gawPoJv1TO5ge0VrKShLHpw3F6kIkbPTO6WdxFm1Anui9QK9VYWiV2lWJsHoI5JMyc"/>
+</div>
+<div class="p-8">
+<h3 class="font-headline-md text-headline-md text-primary mb-4">VIP Enclave</h3>
+<p class="text-on-surface-variant mb-6">Absolute privacy. Dedicated concierge service and a private bar for the discerning nocturnal seeker.</p>
+<a href="contact.html" class="font-label-md text-label-md text-secondary uppercase tracking-widest border-b border-secondary/30 pb-1 hover:border-secondary hover:text-secondary-fixed-dim transition-all inline-block">Enquire Now</a>
+</div>
+</div>
+<!-- The Terrace -->
+<div class="group relative overflow-hidden rounded-xl luxury-shadow bg-surface border border-outline-variant/30 reveal-on-scroll" style="transition-delay: 0.3s;">
+<div class="h-64 overflow-hidden">
+<img alt="The Terrace" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" data-alt="A modern rooftop terrace overlooking the vibrant skyline of Lagos at night. The space features sleek, minimalist outdoor furniture, glowing floor planters, and an open sky. The vibe is fresh and energetic, with clean lines and high-contrast lighting reflecting off metallic surfaces." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYoeTfdPmWC4yacHcRqbwmghzoAWIKta6fmzlB44_t7XuB00n4tkJSEce1DLQoe8UFn0FYcbmFO1GdPy-tjZOy6TM4J5sMd2eBIoyu1H-GbxpshBmICi-EbeYDIynTbwWYd_8Cv8un2zLHgdoCjq1rzAFhiU56VCZkJVBY1o1lmu3Pgi761BU5VJWRJBsnNhpZX8teum9pspVluYCH5Z9EPrePoSxhMU3WjEExOonFnzRnEmLWofKmFznjQ44dNYfpWv28tCYMEpA"/>
+</div>
+<div class="p-8">
+<h3 class="font-headline-md text-headline-md text-primary mb-4">The Terrace</h3>
+<p class="text-on-surface-variant mb-6">Al fresco elegance. Sip artisanal cocktails under the Lagos sky with a panoramic view of Lekki.</p>
+<a href="gallery.html" class="font-label-md text-label-md text-secondary uppercase tracking-widest border-b border-secondary/30 pb-1 hover:border-secondary hover:text-secondary-fixed-dim transition-all inline-block">Explore Views</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-primary dark:bg-tertiary-container w-full">
+<div class="max-w-container-max mx-auto px-margin-desktop py-section-padding-desktop">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+    <img src="assets/logo.jpg" alt="Stories Lagos Logo" class="h-14 w-14 rounded-full object-cover border border-white/10">
+    <div class="font-display-lg text-headline-lg text-on-primary dark:text-tertiary-fixed tracking-tighter uppercase">STORIES LAGOS</div>
+</div>
+<p class="font-body-md text-body-md text-outline-variant max-w-xs">The heart of Lekki's nightlife. Defined by elegance, curated by experts, enjoyed by you.</p>
+</div>
+<div class="space-y-6">
+<h5 class="font-label-md text-label-md text-on-primary uppercase tracking-widest">Connect</h5>
+<ul class="space-y-4">
+<li><a class="font-body-md text-body-md text-outline-variant hover:text-secondary-fixed transition-colors" href="https://www.instagram.com/storieslagos/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+<li><a class="font-body-md text-body-md text-outline-variant hover:text-secondary-fixed transition-colors" href="https://web.facebook.com/profile.php?id=100093518182707" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+<li><a class="font-body-md text-body-md text-outline-variant hover:text-secondary-fixed transition-colors" href="#">Twitter</a></li>
+</ul>
+</div>
+<div class="space-y-6">
+<h5 class="font-label-md text-label-md text-on-primary uppercase tracking-widest">Location</h5>
+<div class="space-y-4 text-outline-variant">
+<p>Lekki Phase I, Lagos</p>
+<p><a href="tel:09036499010" class="hover:text-secondary transition-colors">0903 649 9010</a></p>
+<a class="inline-block text-secondary-fixed hover:underline decoration-1 underline-offset-4" href="https://maps.app.goo.gl/zNDU3kV7bwN6JDW47" target="_blank" rel="noopener noreferrer">Get Directions</a>
+</div>
+</div>
+</div>
+<div class="mt-20 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-body-md text-body-md text-outline-variant">© 2026 STORIES LAGOS. ALL RIGHTS RESERVED.</p>
+<div class="flex gap-8">
+<a class="font-body-md text-body-md text-outline-variant hover:text-on-primary" href="#">Privacy Policy</a>
+<a class="font-body-md text-body-md text-outline-variant hover:text-on-primary" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Simple Interaction for Form Labels & Focus
+        const inputs = document.querySelectorAll('input, select, textarea');
+        inputs.forEach(input => {
+            input.addEventListener('focus', () => {
+                const label = input.parentElement.querySelector('label');
+                if (label) label.classList.add('text-secondary');
+            });
+            input.addEventListener('blur', () => {
+                const label = input.parentElement.querySelector('label');
+                if (label) label.classList.remove('text-secondary');
+            });
+        });
+
+        // Sticky Nav Logic
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            const navContainer = document.getElementById('nav-container');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-lg', 'bg-surface/95');
+                navContainer.classList.remove('py-6');
+                navContainer.classList.add('py-3');
+            } else {
+                nav.classList.remove('shadow-lg', 'bg-surface/95');
+                navContainer.classList.remove('py-3');
+                navContainer.classList.add('py-6');
+            }
+        });
+
+        // Scroll Reveal Implementation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // Stop observing once visible if desired
+                    // observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Form Submit Feedback
+        const form = document.getElementById('reservation-form');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = form.querySelector('button[type="submit"]');
+            const originalText = btn.innerText;
+            btn.innerHTML = '<span class="material-symbols-outlined animate-spin mr-2">progress_activity</span> Processing...';
+            btn.disabled = true;
+            
+            setTimeout(() => {
+                btn.innerHTML = 'Reservation Confirmed';
+                btn.classList.replace('bg-secondary', 'bg-green-600');
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.classList.replace('bg-green-600', 'bg-secondary');
+                    btn.disabled = false;
+                    form.reset();
+                }, 3000);
+            }, 1500);
+        });
+    </script>
+</body></html>
