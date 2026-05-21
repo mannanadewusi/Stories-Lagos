@@ -70,10 +70,10 @@
                         "full": "9999px"
                     },
                     "spacing": {
-                        "margin-desktop": "80px",
+                        "margin-desktop": "var(--margin-desktop)",
                         "base": "8px",
-                        "section-padding-desktop": "120px",
-                        "section-padding-mobile": "64px",
+                        "section-padding-desktop": "var(--section-padding)",
+                        "section-padding-mobile": "var(--section-padding)",
                         "gutter": "24px",
                         "container-max": "1280px"
                     },
@@ -102,6 +102,22 @@
         }
     </script>
 <style>
+        :root {
+            --margin-desktop: 16px;
+            --section-padding: 60px;
+        }
+        @media (min-width: 768px) {
+            :root {
+                --margin-desktop: 40px;
+                --section-padding: 80px;
+            }
+        }
+        @media (min-width: 1024px) {
+            :root {
+                --margin-desktop: 80px;
+                --section-padding: 120px;
+            }
+        }
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
         }
@@ -184,11 +200,32 @@
 <a class="font-body-md text-body-md uppercase tracking-widest text-on-surface-variant hover:text-bronze transition-colors duration-300" href="gallery.html">Gallery</a>
 <a class="font-body-md text-body-md uppercase tracking-widest text-on-surface-variant hover:text-bronze transition-colors duration-300" href="contact.html">Contact</a>
 </div>
-<a href="reservations.html" class="bg-primary text-on-primary px-8 py-3 font-body-md text-label-md uppercase tracking-widest hover:bg-bronze transition-all active:scale-95 shimmer-btn inline-block text-center">
+<div class="flex items-center gap-4">
+<a href="reservations.html" class="hidden md:inline-block bg-primary text-on-primary px-8 py-3 font-body-md text-label-md uppercase tracking-widest hover:bg-bronze transition-all active:scale-95 shimmer-btn text-center">
                 Book a Table
             </a>
+<button id="mobile-menu-toggle" class="md:hidden text-primary focus:outline-none" aria-label="Toggle menu">
+    <span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+</div>
 </div>
 </nav>
+
+<!-- Mobile Menu Drawer -->
+<div id="mobile-menu" class="fixed inset-0 bg-primary/95 backdrop-blur-lg z-50 transform translate-x-full transition-transform duration-500 ease-in-out md:hidden flex flex-col justify-center items-center gap-8">
+  <button id="mobile-menu-close" class="absolute top-6 right-6 text-white focus:outline-none" aria-label="Close menu">
+    <span class="material-symbols-outlined text-3xl">close</span>
+  </button>
+  <div class="flex flex-col items-center gap-8 text-center">
+    <a class="font-body-md text-xl uppercase tracking-widest text-white hover:text-bronze transition-colors" href="index.html">Home</a>
+    <a class="font-body-md text-xl uppercase tracking-widest text-white/70 hover:text-bronze transition-colors" href="menu.html">Menu</a>
+    <a class="font-body-md text-xl uppercase tracking-widest text-white/70 hover:text-bronze transition-colors" href="gallery.html">Gallery</a>
+    <a class="font-body-md text-xl uppercase tracking-widest text-white/70 hover:text-bronze transition-colors" href="contact.html">Contact</a>
+    <a href="reservations.html" class="mt-4 bg-bronze text-white px-8 py-3 font-body-md text-label-md uppercase tracking-widest hover:bg-white hover:text-primary transition-all inline-block text-center">
+      Book a Table
+    </a>
+  </div>
+</div>
 <!-- Hero Section -->
 <header class="relative h-screen flex items-center justify-center overflow-hidden">
 <div class="absolute inset-0 z-0">
@@ -263,7 +300,7 @@
 <img class="w-full h-[600px] object-cover rounded-sm transition-transform duration-1000 group-hover:scale-110" data-alt="An exquisite fine-dining plate." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzEPrfDcYiR3sWoqTU2U3u8L2g2gHWq_kzqeOVJAl55DEkS_qfgpwYXDRCB5KD_KfCn75JSe0k0N0ir29z-ggUXMAjeky43pM5yibUn3V672JrHgVBnw29XsYcz6X8_odSWe6Aik0HcBJehzY8XpMSC-o7l4wJLCbs6V47JrcRe4RRkH27RpoT-KyGY7zI8ySD14sn822JU5kcDea0bXrOJot0fSsow-iXtTBrYl4yzd105D9iaMFmblEWrLcIB9SPmhLoVu3dBBY"/>
 </div>
 <!-- Overlapping card -->
-<div class="absolute -bottom-10 -right-10 md:right-10 bg-surface-container-low p-8 max-w-xs z-20 border border-outline-variant/30 reveal [transition-delay:400ms]">
+<div class="absolute -bottom-10 right-4 left-4 md:-right-10 md:left-auto md:max-w-xs bg-surface-container-low p-8 z-20 border border-outline-variant/30 reveal [transition-delay:400ms]">
 <span class="font-body-md text-[10px] uppercase tracking-widest text-bronze block mb-2">Chef's Selection</span>
 <p class="font-body-md text-body-md italic text-on-primary-fixed">
                             "Experience the fusion of traditional dining flavors with contemporary European techniques."
@@ -406,6 +443,20 @@
             document.querySelectorAll('.reveal').forEach(el => {
                 el.classList.add('active');
                 el.style.transition = 'none';
+            });
+        }
+
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileMenuToggle && mobileMenu && mobileMenuClose) {
+            mobileMenuToggle.addEventListener('click', () => {
+                mobileMenu.classList.remove('translate-x-full');
+            });
+            mobileMenuClose.addEventListener('click', () => {
+                mobileMenu.classList.add('translate-x-full');
             });
         }
     </script>

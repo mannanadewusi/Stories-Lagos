@@ -68,10 +68,10 @@
                     "full": "9999px"
             },
             "spacing": {
-                    "margin-desktop": "80px",
+                    "margin-desktop": "var(--margin-desktop)",
                     "base": "8px",
-                    "section-padding-desktop": "120px",
-                    "section-padding-mobile": "64px",
+                    "section-padding-desktop": "var(--section-padding)",
+                    "section-padding-mobile": "var(--section-padding)",
                     "gutter": "24px",
                     "container-max": "1280px"
             },
@@ -100,8 +100,24 @@
       }
     </script>
 <style>
+        :root {
+            --margin-desktop: 16px;
+            --section-padding: 60px;
+        }
+        @media (min-width: 768px) {
+            :root {
+                --margin-desktop: 40px;
+                --section-padding: 80px;
+            }
+        }
+        @media (min-width: 1024px) {
+            :root {
+                --margin-desktop: 80px;
+                --section-padding: 120px;
+            }
+        }
         .bronze-shadow { box-shadow: 0px 10px 30px rgba(163, 133, 98, 0.08); }
-        .menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 48px; }
+        .menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); gap: 48px; }
         .category-icon { font-variation-settings: 'FILL' 0, 'wght' 300; color: #745a3a; font-size: 32px; }
         
         @media (prefers-reduced-motion: no-preference) {
@@ -120,7 +136,7 @@
         }
     </style>
 </head>
-<body class="bg-background text-on-surface selection:bg-secondary-container">
+<body class="bg-background text-on-surface selection:bg-secondary-container overflow-x-hidden">
 <!-- TopNavBar -->
 <header class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface-container/80 backdrop-blur-md border-b border-outline-variant/10">
 <nav class="flex justify-between items-center max-w-container-max mx-auto px-margin-desktop py-6">
@@ -134,11 +150,32 @@
 <a class="font-body-md text-body-md uppercase tracking-widest text-on-surface-variant dark:text-outline-variant hover:text-secondary transition-colors duration-300" href="gallery.html">Gallery</a>
 <a class="font-body-md text-body-md uppercase tracking-widest text-on-surface-variant dark:text-outline-variant hover:text-secondary transition-colors duration-300" href="contact.html">Contact</a>
 </div>
-<a href="reservations.html" class="bg-primary text-on-primary px-8 py-3 rounded-none font-label-md text-label-md uppercase tracking-widest hover:bg-secondary transition-all active:scale-95 inline-block text-center">
+<div class="flex items-center gap-4">
+<a href="reservations.html" class="hidden md:inline-block bg-primary text-on-primary px-8 py-3 rounded-none font-label-md text-label-md uppercase tracking-widest hover:bg-secondary transition-all active:scale-95 text-center">
                 Book a Table
             </a>
+<button id="mobile-menu-toggle" class="md:hidden text-primary dark:text-primary-fixed focus:outline-none" aria-label="Toggle menu">
+    <span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+</div>
 </nav>
 </header>
+
+<!-- Mobile Menu Drawer -->
+<div id="mobile-menu" class="fixed inset-0 bg-primary/95 backdrop-blur-lg z-50 transform translate-x-full transition-transform duration-500 ease-in-out md:hidden flex flex-col justify-center items-center gap-8">
+  <button id="mobile-menu-close" class="absolute top-6 right-6 text-white focus:outline-none" aria-label="Close menu">
+    <span class="material-symbols-outlined text-3xl">close</span>
+  </button>
+  <div class="flex flex-col items-center gap-8 text-center">
+    <a class="font-body-md text-xl uppercase tracking-widest text-white/70 hover:text-bronze transition-colors" href="index.html">Home</a>
+    <a class="font-body-md text-xl uppercase tracking-widest text-white hover:text-bronze transition-colors" href="menu.html">Menu</a>
+    <a class="font-body-md text-xl uppercase tracking-widest text-white/70 hover:text-bronze transition-colors" href="gallery.html">Gallery</a>
+    <a class="font-body-md text-xl uppercase tracking-widest text-white/70 hover:text-bronze transition-colors" href="contact.html">Contact</a>
+    <a href="reservations.html" class="mt-4 bg-bronze text-white px-8 py-3 font-body-md text-label-md uppercase tracking-widest hover:bg-white hover:text-primary transition-all inline-block text-center">
+      Book a Table
+    </a>
+  </div>
+</div>
 <main class="pt-24">
 <!-- Hero Section -->
 <section class="relative h-[614px] flex items-center justify-center overflow-hidden">
@@ -206,7 +243,7 @@
 <div class="aspect-[3/4] rounded-lg overflow-hidden bronze-shadow group">
 <img class="w-full h-full object-cover parallax-element" data-alt="A perfectly cooked ribeye steak." id="ribeye-image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiNsXbbGzhiFXfgh9uGVpg7hpg-mEmuPHeJVRNFNi4LBycnr6F664oXTf6DRVsxX8tG-Nvv_03x6wqWSHpKoyB8KczIPTsSwndCMTMf8kaGDHCOahYSK0b4BwqG7fWCWj5GN4Mq__rzTJhoYrTirXj1H77iSP4nZ7Thiec8iGWu5rK7IqFumvt6MzayMecTdogquTrqDuvfR_HBZOEHzY6nfy-wTf9OuCEoDRfgjt0xB5uH5I2YEiPM3XRdRB3RwcfaP7C2N-JC6I"/>
 </div>
-<div class="absolute -bottom-10 -right-10 bg-white p-12 max-w-sm hidden md:block border border-secondary/20 shadow-2xl reveal-on-scroll" style="transition-delay: 300ms;">
+<div class="relative md:absolute md:-bottom-10 md:-right-10 bg-white p-6 md:p-12 max-w-full md:max-w-sm border border-secondary/20 shadow-2xl reveal-on-scroll mt-6 md:mt-0" style="transition-delay: 300ms;">
 <span class="block font-label-md text-label-md text-secondary uppercase tracking-widest mb-2">Chef's Signature</span>
 <h3 class="font-headline-md text-headline-md text-primary mb-4">Prime Ribeye Steak</h3>
 <p class="font-body-md text-on-surface-variant mb-6">45-day dry-aged beef, served with bone marrow butter and seasonal tubers.</p>
@@ -403,5 +440,19 @@
                 }
             });
         });
+
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileMenuToggle && mobileMenu && mobileMenuClose) {
+            mobileMenuToggle.addEventListener('click', () => {
+                mobileMenu.classList.remove('translate-x-full');
+            });
+            mobileMenuClose.addEventListener('click', () => {
+                mobileMenu.classList.add('translate-x-full');
+            });
+        }
     </script>
 </body></html>

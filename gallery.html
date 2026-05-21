@@ -68,10 +68,10 @@
                     "full": "9999px"
             },
             "spacing": {
-                    "margin-desktop": "80px",
+                    "margin-desktop": "var(--margin-desktop)",
                     "base": "8px",
-                    "section-padding-desktop": "120px",
-                    "section-padding-mobile": "64px",
+                    "section-padding-desktop": "var(--section-padding)",
+                    "section-padding-mobile": "var(--section-padding)",
                     "gutter": "24px",
                     "container-max": "1280px"
             },
@@ -100,6 +100,28 @@
       }
     </script>
 <style>
+        :root {
+            --margin-desktop: 16px;
+            --section-padding: 60px;
+        }
+        @media (min-width: 768px) {
+            :root {
+                --margin-desktop: 40px;
+                --section-padding: 80px;
+            }
+        }
+        @media (min-width: 1024px) {
+            :root {
+                --margin-desktop: 80px;
+                --section-padding: 120px;
+            }
+        }
+        @media (max-width: 767px) {
+            .gallery-overlay {
+                opacity: 1 !important;
+                background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%) !important;
+            }
+        }
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
             display: inline-block;
@@ -163,7 +185,6 @@
     </style>
 </head>
 <body class="bg-background text-on-surface font-body-md overflow-x-hidden">
-<!-- Top Navigation Bar -->
 <header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-md transition-all duration-300">
 <nav class="flex justify-between items-center max-w-container-max mx-auto px-margin-desktop py-6">
 <a class="flex items-center gap-3 hover:opacity-90 transition-opacity" href="index.html">
@@ -171,16 +192,36 @@
     <span class="font-display-lg text-headline-md text-primary tracking-tighter uppercase">STORIES LAGOS</span>
 </a>
 <div class="hidden md:flex items-center gap-gutter">
-<a class="font-body-md text-body-md uppercase tracking-widest text-on-surface-variant hover:text-secondary transition-colors duration-300" href="index.html">Home</a>
-<a class="font-body-md text-body-md uppercase tracking-widest text-on-surface-variant hover:text-secondary transition-colors duration-300" href="menu.html">Menu</a>
+<a class="font-body-md text-body-md uppercase tracking-widest text-on-surface-variant hover:text-bronze transition-colors duration-300" href="index.html">Home</a>
+<a class="font-body-md text-body-md uppercase tracking-widest text-on-surface-variant hover:text-bronze transition-colors duration-300" href="menu.html">Menu</a>
 <a class="font-body-md text-body-md uppercase tracking-widest text-primary font-bold relative after:content-[''] after:absolute after:-bottom-1 after:left-1/2 after:-translate-x-1/2 after:w-1 after:h-1 after:bg-secondary after:rounded-full" href="gallery.html">Gallery</a>
-<a class="font-body-md text-body-md uppercase tracking-widest text-on-surface-variant hover:text-secondary transition-colors duration-300" href="contact.html">Contact</a>
+<a class="font-body-md text-body-md uppercase tracking-widest text-on-surface-variant hover:text-bronze transition-colors duration-300" href="contact.html">Contact</a>
 </div>
-<a href="reservations.html" class="bg-primary-container text-on-primary font-label-md px-8 py-3 uppercase tracking-widest hover:bg-on-primary-fixed transition-all active:scale-95 inline-block text-center">
+<div class="flex items-center gap-4">
+<a href="reservations.html" class="hidden md:inline-block bg-primary-container text-on-primary font-label-md px-8 py-3 uppercase tracking-widest hover:bg-on-primary-fixed transition-all active:scale-95 text-center">
                 Book a Table
             </a>
+<button id="mobile-menu-toggle" class="md:hidden text-primary focus:outline-none" aria-label="Toggle menu">
+    <span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+</div>
 </nav>
 </header>
+<div id="mobile-menu" class="fixed inset-0 bg-primary/95 backdrop-blur-lg z-50 transform translate-x-full transition-transform duration-500 ease-in-out md:hidden flex flex-col justify-center items-center gap-8">
+  <button id="mobile-menu-close" class="absolute top-6 right-6 text-white focus:outline-none" aria-label="Close menu">
+    <span class="material-symbols-outlined text-3xl">close</span>
+  </button>
+  <div class="flex flex-col items-center gap-8 text-center">
+    <a class="font-body-md text-xl uppercase tracking-widest text-white/70 hover:text-bronze transition-colors" href="index.html">Home</a>
+    <a class="font-body-md text-xl uppercase tracking-widest text-white/70 hover:text-bronze transition-colors" href="menu.html">Menu</a>
+    <a class="font-body-md text-xl uppercase tracking-widest text-white/70 hover:text-bronze transition-colors" href="reservations.html">Reservations</a>
+    <a class="font-body-md text-xl uppercase tracking-widest text-white hover:text-bronze transition-colors" href="gallery.html">Gallery</a>
+    <a class="font-body-md text-xl uppercase tracking-widest text-white/70 hover:text-bronze transition-colors" href="contact.html">Contact</a>
+    <a href="reservations.html" class="mt-4 bg-bronze text-white px-8 py-3 font-body-md text-label-md uppercase tracking-widest hover:bg-white hover:text-primary transition-all inline-block text-center">
+      Book a Table
+    </a>
+  </div>
+</div>
 <main class="pt-32">
 <!-- Hero Section -->
 <section class="max-w-container-max mx-auto px-margin-desktop mb-section-padding-desktop text-center reveal-item">
@@ -202,7 +243,7 @@
 <section class="max-w-container-max mx-auto px-margin-desktop mb-section-padding-desktop">
 <div class="grid grid-cols-1 md:grid-cols-12 gap-gutter" id="gallery-grid">
 <!-- Main Featured (Large) -->
-<div class="md:col-span-8 group relative overflow-hidden rounded-lg gallery-item h-[600px] bronze-glow reveal-item">
+<div class="md:col-span-8 group relative overflow-hidden rounded-lg gallery-item h-[300px] md:h-[600px] bronze-glow reveal-item">
 <img class="w-full h-full object-cover transition-all duration-700" data-alt="A luxurious, high-end lounge interior in Lagos during the evening. The space features deep navy velvet seating, warm bronze accents, and sophisticated architectural lighting that creates a moody yet inviting atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB5Ra_LrM0j330JcCLihHp6tb1m3VELw7p1pMhlMhb6GaL1LvSqR4giTBlAbSFw46JH28J13ppfmVSVFNrO0UiCNeHO0vsbjRbFC4AG0ix7aQkI0xYs7PXhxTOfNCwwRNRzRzuC07_H6oag9_R6B5Z407kwQj46NN53AMiJyKKkNZge7YDvjIO6B6MQCqWiVEg76bGyWcY9uJS9IA1zorMdN7O7slNJ00254NLuFsjqVepPPonEIx1Q20XJ7tnUCxiuB8R8jUzkmEU"/>
 <div class="gallery-overlay absolute inset-0 bg-primary/40 opacity-0 transition-opacity duration-500 flex flex-col justify-end p-8 text-on-primary">
 <span class="font-label-md uppercase tracking-widest mb-2">The Grand Hall</span>
@@ -210,7 +251,7 @@
 </div>
 </div>
 <!-- Vertical Feature -->
-<div class="md:col-span-4 group relative overflow-hidden rounded-lg gallery-item h-[600px] bronze-glow reveal-item">
+<div class="md:col-span-4 group relative overflow-hidden rounded-lg gallery-item h-[300px] md:h-[600px] bronze-glow reveal-item">
 <img class="w-full h-full object-cover transition-all duration-700" data-alt="A close-up shot of a signature cocktail being prepared by a master mixologist. The drink is a deep amber liquid in a crystal glass, garnished with a sprig of burnt rosemary." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxTzt4W3Apwor8EparmXggMC-Zwqp7FNJ5mTghDqWBVnBoPxR1Dyc5eby4e5xy7khwyInzmnHaIZHTAp2_HKZoSf6v7MD9oCyxckLhlsbW-lp9h4V7BX2xJvLP0Uwq5S1X-aIlBYxbg6WkpWxbCf6BDlSoz_MBZYs2PKBDc9daNzMBMobhggUfPAmfbDXS3Mj0eTwskayqYoKrvY7wzrPl_xww_lqQul_Ly6VUDJEXmGbeiNqJAbXDKFBL-Sfl53oWXD_MFbiW_lw"/>
 <div class="gallery-overlay absolute inset-0 bg-primary/40 opacity-0 transition-opacity duration-500 flex flex-col justify-end p-8 text-on-primary">
 <span class="font-label-md uppercase tracking-widest mb-2">Artisan Libations</span>
@@ -218,21 +259,21 @@
 </div>
 </div>
 <!-- Row 2 -->
-<div class="md:col-span-4 group relative overflow-hidden rounded-lg gallery-item h-[400px] bronze-glow reveal-item">
+<div class="md:col-span-4 group relative overflow-hidden rounded-lg gallery-item h-[250px] md:h-[400px] bronze-glow reveal-item">
 <img class="w-full h-full object-cover transition-all duration-700" data-alt="A vibrant, candid shot of a stylish, diverse group of elite guests laughing and conversing in a dimly lit VIP enclave." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6ZCc1OCze2FzbqRmOmuWhDDC8GmYbNdEw32adN9vCwXrTwEIhHDW2lMoPXAQsBZlJDcvj2OLMpF2tqkhBcDwrfmxqseHd7icLw5OqMARrYJxCmvl0nr9iQjmGRCpf2QqmMbDu348D7bH5UD7scMNXsJDGZQlTPcwUE2Vcko5SJUUO60UHk3Cy_UrPhH5Pa_AcRuybikO8EPKWu2T-HvVJ_Ly545E_BqbERUCObbkEaEKpMiduhbWVgnVYiSIVWmprC-Tt1_HCqVY"/>
 <div class="gallery-overlay absolute inset-0 bg-primary/40 opacity-0 transition-opacity duration-500 flex flex-col justify-end p-8 text-on-primary">
 <span class="font-label-md uppercase tracking-widest mb-2">The Enclave</span>
 <h3 class="font-headline-md text-headline-md italic">Shared Moments</h3>
 </div>
 </div>
-<div class="md:col-span-4 group relative overflow-hidden rounded-lg gallery-item h-[400px] bronze-glow reveal-item">
+<div class="md:col-span-4 group relative overflow-hidden rounded-lg gallery-item h-[250px] md:h-[400px] bronze-glow reveal-item">
 <img class="w-full h-full object-cover transition-all duration-700" data-alt="An exquisite gourmet dish featuring seared sea bass atop a colorful bed of Mediterranean vegetables, presented on a minimalist white porcelain plate." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqeUiglsK0vAsYsxcWrtCslyoWoxowtEhpzfEjBZeEJEj3DxpPGrAuwLtWn2hryHiczH3MSTIk60Dn2NWOPKbyI9yvkRRoRsViSUE6XT1m_J2VJAYpCrDITNqZD2dSMCb-CSajE1c5zxe-hZQF3sAayLHrw7QLrv0iUE-scTzGJwujmVQiwGxWmo5qiXdv74uxggLPqE7okYELzhUHbot7Rjxz7iLyxGNhz_wXgXBqv5-dMICMorEdvSqZK-zPlwlrxfDfif7klm8"/>
 <div class="gallery-overlay absolute inset-0 bg-primary/40 opacity-0 transition-opacity duration-500 flex flex-col justify-end p-8 text-on-primary">
 <span class="font-label-md uppercase tracking-widest mb-2">Culinary Artistry</span>
 <h3 class="font-headline-md text-headline-md italic">Tastes of Lekki</h3>
 </div>
 </div>
-<div class="md:col-span-4 group relative overflow-hidden rounded-lg gallery-item h-[400px] bronze-glow reveal-item">
+<div class="md:col-span-4 group relative overflow-hidden rounded-lg gallery-item h-[250px] md:h-[400px] bronze-glow reveal-item">
 <img class="w-full h-full object-cover transition-all duration-700" data-alt="A wide-angle perspective of the Stories Lagos dining room during a busy evening. The interior design showcases high ceilings and bespoke geometric chandeliers." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUoPPKH2DtQ6RGnnwPjI-XZdC830Ox-WI2FwPXGOCF77zG4JOHXKl9aQ4SSBMOCrKIkqTVZ0rrKFo-p9zel9AI98bOL1KdvVPtOgV45fq92F1Hz7DgV7ETCl5v7aFlfR8ItQXe1dzdDFwuN6L-15AVYL2DYVcE20_YCVjvquL3qiI2Hl7ThLsDHzM39CQ-MDtpG7rEpvjnCdqlkeUbYYZSNK-HF7ekt3RitkxbhWRIWZ7NmZryd9LRfiaa6N8bUnjiaa795ggoWjo"/>
 <div class="gallery-overlay absolute inset-0 bg-primary/40 opacity-0 transition-opacity duration-500 flex flex-col justify-end p-8 text-on-primary">
 <span class="font-label-md uppercase tracking-widest mb-2">The Dining Theatre</span>
@@ -240,14 +281,14 @@
 </div>
 </div>
 <!-- Row 3 - Asymmetric Span -->
-<div class="md:col-span-5 group relative overflow-hidden rounded-lg gallery-item h-[500px] bronze-glow reveal-item">
+<div class="md:col-span-5 group relative overflow-hidden rounded-lg gallery-item h-[300px] md:h-[500px] bronze-glow reveal-item">
 <img class="w-full h-full object-cover transition-all duration-700" data-alt="A detail shot of the outdoor terrace at night. Minimalist fire pits create dancing shadows against sleek navy stone walls." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYAFKi7Ut4Pazx9iuuxAE0-XUWDAyWCIIZ9G2w6BDRB8O9s8pvmZ8Qap8bdejfTvBW_UfAfFG__zc7VlWM5QHJT1t-7SbTDBO7629Qkj_UPaz5-m6GhZd9zs9oS6KrGMGbCmpSBAF8QwPFsT_G5dWXiAoJYxuL9skaWwaCa7LmTtbEMPc6LkVpr8GO1WkJ_tgnVMdbxKrXbt9KzNwFZ_Q7PVSCSwGojLQm63PihEd8rDXQdGFKIKappRWc4MV-q2Eoxp7pHN8l4JI"/>
 <div class="gallery-overlay absolute inset-0 bg-primary/40 opacity-0 transition-opacity duration-500 flex flex-col justify-end p-8 text-on-primary">
 <span class="font-label-md uppercase tracking-widest mb-2">Terrace Serenity</span>
 <h3 class="font-headline-md text-headline-md italic">Evening Breeze</h3>
 </div>
 </div>
-<div class="md:col-span-7 group relative overflow-hidden rounded-lg gallery-item h-[500px] bronze-glow reveal-item">
+<div class="md:col-span-7 group relative overflow-hidden rounded-lg gallery-item h-[300px] md:h-[500px] bronze-glow reveal-item">
 <img class="w-full h-full object-cover transition-all duration-700" data-alt="An atmospheric shot of the bar counter, focusing on a row of elegant long-stemmed wine glasses reflecting the soft ambient bronze lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLt0mDNDgpcdtZqFYZ1TqTCTLTKY60s7wxdSlKeFpREaJ7hf_mfxG8KlHzpF5cZjea1VeUWvuD5Cwrod451s_UURtsRuOHkvKORXUSISwfocqeY410O2OG4CLKdn8wsChK9A2y6rzR3NUDE_HKYHRclrY5vvXObybtQkHbYJc-IkLW8bjqAKJW-AjNbbtbJTKMHFViWGEJuF42kSdZ3yMclLqy1rxsZtJEAHELqTObe01RKoPOQWZ_-YvrU1dHyvCKagwqNNBbwcM"/>
 <div class="gallery-overlay absolute inset-0 bg-primary/40 opacity-0 transition-opacity duration-500 flex flex-col justify-end p-8 text-on-primary">
 <span class="font-label-md uppercase tracking-widest mb-2">Service Excellence</span>
@@ -367,5 +408,19 @@
                 btn.classList.remove('text-on-surface-variant', 'border-outline-variant');
             });
         });
+
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileMenuToggle && mobileMenu && mobileMenuClose) {
+            mobileMenuToggle.addEventListener('click', () => {
+                mobileMenu.classList.remove('translate-x-full');
+            });
+            mobileMenuClose.addEventListener('click', () => {
+                mobileMenu.classList.add('translate-x-full');
+            });
+        }
     </script>
 </body></html>

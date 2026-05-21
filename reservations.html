@@ -68,10 +68,10 @@
                     "full": "9999px"
             },
             "spacing": {
-                    "margin-desktop": "80px",
+                    "margin-desktop": "var(--margin-desktop)",
                     "base": "8px",
-                    "section-padding-desktop": "120px",
-                    "section-padding-mobile": "64px",
+                    "section-padding-desktop": "var(--section-padding)",
+                    "section-padding-mobile": "var(--section-padding)",
                     "gutter": "24px",
                     "container-max": "1280px"
             },
@@ -100,6 +100,22 @@
       }
     </script>
 <style>
+        :root {
+            --margin-desktop: 16px;
+            --section-padding: 60px;
+        }
+        @media (min-width: 768px) {
+            :root {
+                --margin-desktop: 40px;
+                --section-padding: 80px;
+            }
+        }
+        @media (min-width: 1024px) {
+            :root {
+                --margin-desktop: 80px;
+                --section-padding: 120px;
+            }
+        }
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
             display: inline-block;
@@ -186,11 +202,33 @@
 <a class="font-body-md text-body-md uppercase tracking-widest text-on-surface-variant dark:text-outline-variant hover:text-secondary transition-colors duration-300" href="gallery.html">Gallery</a>
 <a class="font-body-md text-body-md uppercase tracking-widest text-on-surface-variant dark:text-outline-variant hover:text-secondary transition-colors duration-300" href="contact.html">Contact</a>
 </div>
-<a href="reservations.html" class="bg-primary text-on-primary px-8 py-3 font-label-md text-label-md uppercase tracking-widest hover:bg-secondary active:scale-95 transition-all duration-300 inline-block text-center">
+<div class="flex items-center gap-4">
+<a href="reservations.html" class="hidden md:inline-block bg-primary text-on-primary px-8 py-3 font-label-md text-label-md uppercase tracking-widest hover:bg-secondary active:scale-95 transition-all duration-300 text-center">
                 Book a Table
             </a>
+<button id="mobile-menu-toggle" class="md:hidden text-primary dark:text-primary-fixed focus:outline-none" aria-label="Toggle menu">
+    <span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+</div>
 </div>
 </nav>
+
+<!-- Mobile Menu Drawer -->
+<div id="mobile-menu" class="fixed inset-0 bg-primary/95 backdrop-blur-lg z-50 transform translate-x-full transition-transform duration-500 ease-in-out md:hidden flex flex-col justify-center items-center gap-8">
+  <button id="mobile-menu-close" class="absolute top-6 right-6 text-white focus:outline-none" aria-label="Close menu">
+    <span class="material-symbols-outlined text-3xl">close</span>
+  </button>
+  <div class="flex flex-col items-center gap-8 text-center">
+    <a class="font-body-md text-xl uppercase tracking-widest text-white/70 hover:text-bronze transition-colors" href="index.html">Home</a>
+    <a class="font-body-md text-xl uppercase tracking-widest text-white/70 hover:text-bronze transition-colors" href="menu.html">Menu</a>
+    <a class="font-body-md text-xl uppercase tracking-widest text-white hover:text-bronze transition-colors" href="reservations.html">Reservations</a>
+    <a class="font-body-md text-xl uppercase tracking-widest text-white/70 hover:text-bronze transition-colors" href="gallery.html">Gallery</a>
+    <a class="font-body-md text-xl uppercase tracking-widest text-white/70 hover:text-bronze transition-colors" href="contact.html">Contact</a>
+    <a href="reservations.html" class="mt-4 bg-bronze text-white px-8 py-3 font-body-md text-label-md uppercase tracking-widest hover:bg-white hover:text-primary transition-all inline-block text-center">
+      Book a Table
+    </a>
+  </div>
+</div>
 <!-- Hero Section -->
 <header class="relative h-[614px] flex items-center justify-center overflow-hidden">
 <div class="absolute inset-0 z-0">
@@ -236,7 +274,7 @@
 </div>
 <!-- Form Container -->
 <div class="lg:col-span-7">
-<div class="bg-primary-container p-12 rounded-xl luxury-shadow relative overflow-hidden animate-fade-in-up" style="animation-delay: 0.4s;">
+<div class="bg-primary-container p-6 md:p-12 rounded-xl luxury-shadow relative overflow-hidden animate-fade-in-up" style="animation-delay: 0.4s;">
 <!-- Subtle Background Accent -->
 <div class="absolute top-0 right-0 -mr-20 -mt-20 w-64 h-64 bg-secondary/10 rounded-full blur-3xl"></div>
 <form class="relative z-10 space-y-8" id="reservation-form">
@@ -459,5 +497,19 @@
                 }, 3000);
             }, 1500);
         });
+
+        // Mobile Menu Toggle
+        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileMenuToggle && mobileMenu && mobileMenuClose) {
+            mobileMenuToggle.addEventListener('click', () => {
+                mobileMenu.classList.remove('translate-x-full');
+            });
+            mobileMenuClose.addEventListener('click', () => {
+                mobileMenu.classList.add('translate-x-full');
+            });
+        }
     </script>
 </body></html>
